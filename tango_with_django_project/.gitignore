@@ -2,3 +2,5 @@ env/
 *.jpg
 *.jpeg
 *.png
+.vscode/
+*.pdf
