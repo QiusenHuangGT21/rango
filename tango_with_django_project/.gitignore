@@ -5,4 +5,5 @@ env/
 .vscode/
 *.pdf
 *.sqlite3
-*.pyc
+*.py[cod]
+*.code-workspace
