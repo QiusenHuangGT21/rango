@@ -1,6 +1,8 @@
 env/
 *.jpg
+env/
 *.jpeg
 *.png
 .vscode/
 *.pdf
+*.sqlite3
