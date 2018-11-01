@@ -4,6 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 from rango.models import Category, Page
+from django.template.defaultfilters import slugify
 
 def populate():
     # First, we will create lists of dictionaries containing the pages
@@ -57,6 +58,7 @@ def add_page(cat, title, url, views=0):
 
 def add_cat(name):
     c = Category.objects.get_or_create(name=name)[0]
+    c.slug = slugify(name)
     c.save()
     return c
 
