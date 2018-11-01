@@ -5,6 +5,7 @@ import django
 django.setup()
 from rango.models import Category, Page
 from django.template.defaultfilters import slugify
+import random
 
 def populate():
     # First, we will create lists of dictionaries containing the pages
@@ -49,10 +50,11 @@ def populate():
         for p in Page.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
-def add_page(cat, title, url, views=0):
+def add_page(cat, title, url):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
     p.url=url
-    p.views=views
+    random.seed(str(url))
+    p.views=random.randint(0,150)
     p.save()
     return p
 

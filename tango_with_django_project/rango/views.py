@@ -8,8 +8,10 @@ def index(request):
 	#return HttpResponse("Hello, world. You are at the rango page!\
 	#<br/> <a href = '/rango/about/'> About </a>")
 	category_list = Category.objects.order_by('-likes')[:5]
+	page_list = Page.objects.order_by('-views')[:5]
 	current_time = timezone.now()
 	context_dict = {'categories': category_list,
+					'pages': page_list,
 					'current_time': current_time
 					}
 	return render(request, 'rango/index.html', context = context_dict)
